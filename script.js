@@ -9,7 +9,7 @@ function updateTimer() {
   let diff = targetDate - now;
 
   if (diff <= 0) {
-    document.getElementById('timer').innerText = NU ÄR DET LAN!;
+    document.getElementById('timer').innerText = "NU ÄR DET LAN" ;
     if (timerInterval) clearInterval(timerInterval);
     startColorShift();
     return;
