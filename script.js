@@ -45,6 +45,19 @@ function getRandomColor() {
   return `rgb(${r},${g},${b})`;
 }
 
+// New functionality: Page headline and click event
+document.addEventListener('DOMContentLoaded', () => {
+  const headline = document.createElement('h1');
+  headline.innerText = 'Vad ska Tobe bygga?';
+  headline.style.cursor = 'pointer';
+
+  headline.addEventListener('click', () => {
+    alert('Supply Depots');
+  });
+
+  document.body.appendChild(headline);
+});
+
 // Start the timer updates
 timerInterval = setInterval(updateTimer, 1000);
 updateTimer();
