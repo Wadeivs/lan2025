@@ -1,63 +1,118 @@
-let timerInterval;
-let colorInterval;
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN Countdown</title>
+    <style>
+        body {
+            background-color: #282c34;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.1s ease; /* Smooth color transition */
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5em;
+        }
+        #timer {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5em;
+        }
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
 
-function updateTimer() {
-  // Target: 10th October 2025, 12:00 Swedish time (CEST)
-  const targetDate = new Date('2025-10-10T12:00:00+02:00');
-  const now = new Date();
+    <div id="timer"></div>
 
-  let diff = targetDate - now;
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/Xucw3VPIW84?si=Jt9z0M_d3j5a4VqF" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
 
-  if (diff <= 0) {
-    document.getElementById('timer').innerText = "NU ÄR DET LAN" ;
-    if (timerInterval) clearInterval(timerInterval);
-    startColorShift();
-    return;
-  }
+<script>
+    let timerInterval;
+    let colorInterval;
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  diff -= days * (1000 * 60 * 60 * 24);
+    function updateTimer() {
+      // Target: 10th October 2025, 12:00 Swedish time (CEST)
+      const targetDate = new Date('2025-10-10T12:00:00+02:00');
+      const now = new Date();
 
-  const hours = Math.floor(diff / (1000 * 60 * 60));
-  diff -= hours * (1000 * 60 * 60);
+      let diff = targetDate - now;
 
-  const minutes = Math.floor(diff / (1000 * 60));
-  diff -= minutes * (1000 * 60);
+      if (diff <= 0) {
+        document.getElementById('timer').innerText = "NU ÄR DET LAN" ;
+        if (timerInterval) clearInterval(timerInterval);
+        startColorShift();
+        return;
+      }
 
-  const seconds = Math.floor(diff / 1000);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * (1000 * 60 * 60 * 24);
 
-  const text = `${days} dagar ${hours} timmar ${minutes} minuter ${seconds} sekunder`;
-  document.getElementById('timer').innerText = text;
-}
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * (1000 * 60 * 60);
 
-function startColorShift() {
-  if (colorInterval) return; // Already running
-  colorInterval = setInterval(() => {
-    document.body.style.backgroundColor = getRandomColor();
-  }, 100); // Change every 100ms
-}
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * (1000 * 60);
 
-function getRandomColor() {
-  // Generate a random RGB color
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-  return `rgb(${r},${g},${b})`;
-}
+      const seconds = Math.floor(diff / 1000);
 
-// New functionality: Page headline and click event
-document.addEventListener('DOMContentLoaded', () => {
-  const headline = document.createElement('h1');
-  headline.innerText = 'Vad ska Tobe bygga?';
-  headline.style.cursor = 'pointer';
+      const text = `${days} dagar ${hours} timmar ${minutes} minuter ${seconds} sekunder`;
+      document.getElementById('timer').innerText = text;
+    }
 
-  headline.addEventListener('click', () => {
-    alert('Supply Depots');
-  });
+    function startColorShift() {
+      if (colorInterval) return; // Already running
+      colorInterval = setInterval(() => {
+        document.body.style.backgroundColor = getRandomColor();
+      }, 100); // Change every 100ms
+    }
 
-  document.body.appendChild(headline);
-});
+    function getRandomColor() {
+      // Generate a random RGB color
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      return `rgb(${r},${g},${b})`;
+    }
 
-// Start the timer updates
-timerInterval = setInterval(updateTimer, 1000);
-updateTimer();
+    // New functionality: Page headline and click event
+    document.addEventListener('DOMContentLoaded', () => {
+      const headline = document.createElement('h1');
+      headline.innerText = 'Vad ska Tobe bygga?';
+      headline.style.cursor = 'pointer';
+
+      headline.addEventListener('click', () => {
+        alert('Supply Depots');
+      });
+      
+      // Prepend the headline to the body so it appears on top
+      document.body.prepend(headline);
+    });
+
+    // Start the timer updates
+    timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
+</script>
+
+</body>
+</html>
