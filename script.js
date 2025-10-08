@@ -95,8 +95,9 @@
       return `rgb(${r},${g},${b})`;
     }
 
-    // New functionality: Page headline and click event
+    // Wait until the entire HTML document is loaded and ready
     document.addEventListener('DOMContentLoaded', () => {
+      // Create and add the headline
       const headline = document.createElement('h1');
       headline.innerText = 'Vad ska Tobe bygga?';
       headline.style.cursor = 'pointer';
@@ -105,14 +106,7 @@
         alert('Supply Depots');
       });
       
-      // Prepend the headline to the body so it appears on top
       document.body.prepend(headline);
-    });
-
-    // Start the timer updates
-    timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-</script>
-
-</body>
-</html>
+      
+      // -- THE FIX IS HERE --
+      // Now that we know the page is loaded, we can safely
