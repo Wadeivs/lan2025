@@ -55,6 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Supply Depots');
   });
 
+  // New functionality: Page headline and click event
+document.addEventListener('DOMContentLoaded', () => {
+  const headline = document.createElement('h1');
+  headline.innerText = 'Vem vann NSL2024?';
+  headline.style.cursor = 'pointer';
+
+  headline.addEventListener('click', () => {
+    alert('Klampe');
+  });
+
   document.body.appendChild(headline);
 });
 
