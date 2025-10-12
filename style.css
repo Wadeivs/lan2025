@@ -28,7 +28,7 @@ h1 {
 #lan-image {
   display: block;            /* Makes it easier to center */
   margin: 30px auto 0 auto;  /* Adds space above and centers it */
-  width: 300px;              /* Set a specific width */
+  width: 500px;              /* Set a specific width */
   max-width: 100%;           /* Ensures it shrinks on smaller screens */
   border-radius: 8px;        /* Optional: gives it nice rounded corners */
 }
