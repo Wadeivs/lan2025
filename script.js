@@ -6,15 +6,6 @@ function updateTimer() {
   const targetDate = new Date('2026-10-10T12:00:00+02:00');
   const now = new Date();
 
-  let diff = targetDate - now;
-@@ -48,17 +48,17 @@ function getRandomColor() {
-  if (diff <= 0) {
-    document.getElementById('timer').innerText = "NU ÄR DET LAN" ;
-    if (timerInterval) clearInterval(timerInterval);
-    startColorShift();
-    return;
-  }
-
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   diff -= days * (1000 * 60 * 60 * 24);
 
