@@ -46,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Headline 2
   const headline2 = document.createElement('h2');
-  headline2.innerText = 'Vem vann NSL2025?';
+  headline2.innerText = 'Resultat NSL2025';
   headline2.style.cursor = 'pointer';
   headline2.addEventListener('click', () => {
-    alert('Klampe');
+    alert('1) Klampe, 2) Slammo, 3) Wade, 4) Agel');
   });
   document.body.appendChild(headline2);
 
