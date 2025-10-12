@@ -24,9 +24,4 @@ h1 {
   color: #333;
   text-shadow: 2px 2px 8px #fff59d;
 }
-iframe {
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-  border: 0;
-}
+
