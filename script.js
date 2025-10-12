@@ -2,12 +2,12 @@ let timerInterval;
 let colorInterval;
 
 function updateTimer() {
-  // Target: 10th October 2025, 12:00 Swedish time (CEST)
-  const targetDate = new Date('2025-10-10T12:00:00+02:00');
+  // Target: 10th October 2026, 12:00 Swedish time (CEST)
+  const targetDate = new Date('2026-10-10T12:00:00+02:00');
   const now = new Date();
 
   let diff = targetDate - now;
-
+@@ -48,17 +48,17 @@ function getRandomColor() {
   if (diff <= 0) {
     document.getElementById('timer').innerText = "NU ÄR DET LAN" ;
     if (timerInterval) clearInterval(timerInterval);
@@ -48,17 +48,17 @@ function getRandomColor() {
 // New functionality: Page headline and click event
 document.addEventListener('DOMContentLoaded', () => {
   const headline = document.createElement('h1');
-  headline.innerText = 'Vad ska Tobe bygga?';
+  headline.innerText = 'Vad ska Tobe tänka på nästa gång?';
   headline.style.cursor = 'pointer';
 
   headline.addEventListener('click', () => {
-    alert('Supply Depots');
+    alert('Scouta med sina vultures');
   });
 
   // New functionality: Page headline and click event
 document.addEventListener('DOMContentLoaded', () => {
   const headline = document.createElement('h1');
-  headline.innerText = 'Vem vann NSL2024?';
+  headline.innerText = 'Vem vann NSL2025?';
   headline.style.cursor = 'pointer';
 
   headline.addEventListener('click', () => {
