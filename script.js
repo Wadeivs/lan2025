@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const timerInterval = setInterval(updateTimer, 1000);
   updateTimer();
 
+  // --- EVENT DATE DISPLAY ---
+  const eventDateElement = document.createElement('p');
+  eventDateElement.innerText = '📅 LAN 13-15 November 2026';
+  eventDateElement.style.fontSize = '1.1em';
+  eventDateElement.style.fontWeight = 'bold';
+  eventDateElement.style.marginTop = '10px';
+  document.body.appendChild(eventDateElement);
 
   // --- EXTRA HEADLINES ---
   // 3. FIX: Create and add both headlines inside the same listener
