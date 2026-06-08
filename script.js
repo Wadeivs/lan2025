@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // --- TIMER FUNCTIONALITY ---
   function updateTimer() {
-    // Target: 10th October 2026, 12:00 Swedish time (CEST is UTC+2)
-    const targetDate = new Date('2026-10-10T12:00:00+02:00');
+    // Target: 13th November 2026, 12:00 Swedish time (CET is UTC+1)
+    const targetDate = new Date('2026-11-13T12:00:00+01:00');
     const now = new Date();
 
     // 1. FIX: Calculate the difference between the dates first!
@@ -54,4 +54,3 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(headline2);
 
 });
-
